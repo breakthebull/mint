@@ -16,7 +16,7 @@ Welcome to **Mocha Latte Cafe 003** — where earthy browns meet refreshing mint
 
 ## 🌓 Two Roasts, One Fresh Experience
 
-### **🌿 Mint Cappuccino (Light Mode)**
+### **🌿 Kombucha (Light Mode)**
 A light, airy experience with mint cream backgrounds and warm brown accents. Perfect for daytime writing when you want clarity without eye strain.
 
 **Color Profile:**
