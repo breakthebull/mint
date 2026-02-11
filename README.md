@@ -26,7 +26,7 @@ A light, airy experience with mint cream backgrounds and warm brown accents. Per
 
 ---
 
-### **🌿 Forest Espresso (Dark Mode)**
+### **🌿 Mint Mocha (Dark Mode)**
 Deep, earthy browns with vibrant mint green highlights. Creates a cozy yet refreshing atmosphere for late-night writing sessions.
 
 **Color Profile:**
