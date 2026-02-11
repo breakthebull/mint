@@ -1,0 +1,917 @@
+/* ========================================
+OBSIDIAN THEME: Mocha Latte Cafe 003
+AUTHOR: DA Rasmussen
+LICENSE: CC0-1.0
+VERSION: 003 - "Minty Fresh Brew"
+======================================== */
+/* -
+GLOBAL RESETS & FOUNDATIONS
+- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    /* Font Stack */
+    --default-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-monospace: "Source Code Pro", "Fira Code", Consolas, monospace;
+    
+    /* Typography from Style Settings */
+    --font-size-normal: 16px;
+    --font-size-code: 15px;
+    --line-height-normal: 1.5;
+}
+
+/* ========================================
+THEME VARIABLES (ESPRESSO - DARK MODE)
+======================================== */
+.theme-dark {
+    /* Core Palette - Dark Brown Base with Mint Accents */
+    --espresso-base: #95c798;        /* Mint green accent */
+    --espresso-hover: #7da87f;       /* Deeper mint */
+    --espresso-active: #fbffe0;      /* Light cream highlight */
+    --espresso-border: #31402f;      /* Dark brown border */
+    --espresso-deep: #1f2a21;        /* Almost black brown */
+
+    /* Backgrounds */
+    --background-primary: #171b16;   /* Dark coffee */
+    --background-primary-alt: #182518;
+    --background-secondary: #011402; /* Espresso base */
+    --background-secondary-alt: #142215;
+    --background-accent: var(--espresso-base);
+
+    /* Modifiers */
+    --background-modifier-cover: rgba(0, 0, 0, 0.90);
+    --background-modifier-border: var(--espresso-border);
+    --background-modifier-form-field: rgba(201, 140, 104, 0.20);
+    --background-modifier-border-focus: var(--espresso-base);
+    --background-modifier-border-hover: var(--espresso-hover);
+    --background-modifier-hover: rgba(125, 168, 127, 0.30);
+
+    /* Metadata */
+    --metadata-label-text-color: #b8a89a;
+    --metadata-label-background: rgba(51, 41, 38, 0.90);
+    --metadata-property-background: rgba(60, 48, 45, 0.45);
+
+    /* Text Hierarchy */
+    --text-normal: #e0d0c0;          /* Creamy text */
+    --text-muted: #a88c75;
+    --text-faint: #7a6555;
+    --text-active: #f5e8dc;
+    --text-selection: rgba(161, 107, 77, 0.85);
+    --text-highlight-bg: rgba(245, 200, 150, 0.40);
+    --text-highlight-bg-active: rgba(245, 160, 100, 0.55);
+    --text-on-accent: #f5e8dc;
+    --text-on-accent-inverted: var(--espresso-border);
+
+    /* Links & Accents */
+    --text-accent: var(--espresso-base);
+    --text-accent-hover: var(--espresso-hover);
+
+    /* Interactive Elements */
+    --interactive-normal: var(--espresso-base);
+    --interactive-hover: var(--espresso-hover);
+    --interactive-accent: var(--espresso-border);
+    --interactive-accent-hover: var(--espresso-hover);
+
+    /* UI Components */
+    --scrollbar-bg: #1f1917;
+    --scrollbar-thumb-bg: rgba(125, 168, 127, 0.55);
+    --scrollbar-active-thumb-bg: var(--espresso-border);
+    --icon-color-normal: var(--espresso-base);
+    --icon-color-hover: var(--espresso-active);
+    --nav-item-color: var(--espresso-base);
+    --nav-item-color-hover: var(--espresso-hover);
+    --nav-item-color-active: var(--espresso-active);
+    --nav-item-color-background-hover: rgba(201, 140, 104, 0.18);
+    --toggle-thumb-color: var(--espresso-base);
+    --dropdown-background: var(--background-secondary);
+    --status-bar-background: var(--background-secondary-alt);
+    --search-icon-color: var(--espresso-base);
+    --sync-avatar-color-current-user: var(--espresso-base);
+}
+
+/* ========================================
+THEME VARIABLES (CAPPUCCINO - LIGHT MODE)
+======================================== */
+.theme-light {
+    /* Core Palette - Minty Fresh */
+    --cappuccino-base: #528555;      /* Warm brown */
+    --cappuccino-hover: #6b5641;     /* Deeper brown */
+    --cappuccino-active: #fbffe0;    /* Light cream */
+    --cappuccino-border: #95c798;    /* Mint green border */
+    --cappuccino-foam: #e8f0e6;      /* Mint cream */
+
+    /* Backgrounds */
+    --background-primary: #fcf4e0;   /* Creamy base */
+    --background-primary-alt: #cfdfcd;
+    --background-secondary: #c8e0cb; /* Cappuccino */
+    --background-secondary-alt: #c0d8c3;
+    --background-accent: var(--cappuccino-base);
+
+    /* Modifiers */
+    --background-modifier-border: #c8b8a8;
+    --background-modifier-form-field: rgba(154, 117, 88, 0.12);
+    --background-modifier-border-focus: var(--cappuccino-base);
+    --background-modifier-hover: rgba(125, 94, 68, 0.08);
+
+    /* Text Hierarchy */
+    --text-normal: #382a20;          /* Dark roast */
+    --text-muted: #6b5a4a;
+    --text-faint: #9a8878;
+    --text-active: #251a12;
+    --text-selection: rgba(125, 94, 68, 0.22);
+    --text-highlight-bg: rgba(255, 225, 180, 0.45);
+    --text-highlight-bg-active: rgba(255, 190, 130, 0.55);
+    --text-on-accent: #fff;
+    --text-on-accent-inverted: var(--cappuccino-border);
+
+    /* Links & Accents */
+    --text-accent: var(--cappuccino-border);
+    --text-accent-hover: var(--cappuccino-base);
+
+    /* Interactive Elements */
+    --interactive-normal: var(--cappuccino-hover);
+    --interactive-hover: var(--cappuccino-base);
+    --interactive-accent: var(--cappuccino-border);
+    --interactive-accent-hover: var(--cappuccino-hover);
+
+    /* UI Components */
+    --scrollbar-bg: rgba(0, 0, 0, 0.04);
+    --scrollbar-thumb-bg: rgba(0, 0, 0, 0.18);
+    --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.30);
+    --icon-color-normal: var(--cappuccino-border);
+    --icon-color-hover: var(--cappuccino-base);
+    --nav-item-color: var(--cappuccino-border);
+    --nav-item-color-hover: var(--cappuccino-hover);
+    --nav-item-color-active: var(--cappuccino-active);
+    --nav-item-color-background-hover: rgba(154, 117, 88, 0.09);
+    --toggle-thumb-color: var(--cappuccino-active);
+    --dropdown-background: var(--background-secondary);
+    --status-bar-background: var(--background-secondary-alt);
+    --search-icon-color: var(--cappuccino-border);
+    --sync-avatar-color-current-user: var(--cappuccino-base);
+}
+
+/* ========================================
+LIGHT MODE BUTTON FIX - All Buttons Brown with White Text
+======================================== */
+
+/* Regular Buttons */
+.theme-light button:not(.mod-cta, .mod-warning, .clickable-icon, .setting-editor-extra-setting-button, .workspace-tab-header-inner-close-button) {
+    background-color: var(--cappuccino-base) ;
+    color: white ;
+    border-color: var(--cappuccino-border) ;
+    font-weight: bold ;
+}
+
+/* Hover State */
+.theme-light button:not(.mod-cta, .mod-warning, .clickable-icon):hover {
+    background-color: var(--cappuccino-hover) ;
+    color: white ;
+}
+
+/* Settings Modal Buttons */
+.theme-light .modal button,
+.theme-light .modal .button,
+.theme-light .modal .community-plugin-button,
+.theme-light .modal .community-theme-button {
+    background-color: var(--cappuccino-base) ;
+    color: white ;
+    border-color: var(--cappuccino-border) ;
+    font-weight: bold ;
+}
+
+/* Settings Item Control Buttons */
+.theme-light .setting-item-control button {
+    background-color: var(--cappuccino-base) ;
+    color: white ;
+    border-color: var(--cappuccino-border) ;
+    font-weight: bold ;
+}
+
+.theme-light .setting-item-control button:hover {
+    background-color: var(--cappuccino-hover) ;
+    color: white ;
+}
+
+/* Dropdown Buttons */
+.theme-light .dropdown {
+    background-color: var(--cappuccino-base) ;
+    color: white ;
+    border-color: var(--cappuccino-border) ;
+    text-align: center ;
+}
+
+.theme-light .dropdown:hover {
+    background-color: var(--cappuccino-hover) ;
+    color: white ;
+}
+
+/* Community Plugin/Theme Install Buttons */
+.theme-light .community-plugin-button,
+.theme-light .community-theme-button {
+    background-color: var(--cappuccino-base) ;
+    color: white ;
+    border-color: var(--cappuccino-border) ;
+    font-weight: bold ;
+}
+
+.theme-light .community-plugin-button:hover,
+.theme-light .community-theme-button:hover {
+    background-color: var(--cappuccino-hover) ;
+    color: white ;
+}
+
+/* CTA Buttons (should still be readable) */
+.theme-light button.mod-cta {
+    background-color: var(--cappuccino-hover) ;
+    color: white ;
+    font-weight: bold ;
+}
+
+.theme-light button.mod-cta:hover {
+    background-color: var(--cappuccino-base) ;
+    color: white ;
+}
+
+/* Warning Buttons - keep red but ensure white text */
+.theme-light button.mod-warning {
+    background-color: #c44536 ;
+    color: white ;
+    font-weight: bold ;
+}
+
+/* Fix for Smalltalk/Dialog Buttons */
+.theme-light .smalltalk button,
+.theme-light .modal button:not(.mod-cta):not(.mod-warning) {
+    background-color: var(--cappuccino-base) ;
+    color: white ;
+    border-color: var(--cappuccino-border) ;
+    font-weight: bold ;
+}
+
+.theme-light .smalltalk button:hover,
+.theme-light .modal button:not(.mod-cta):not(.mod-warning):hover {
+    background-color: var(--cappuccino-hover) ;
+    color: white ;
+}
+
+/* Fix for Plugin Buttons in Settings */
+.theme-light .community-item-button {
+    background-color: var(--cappuccino-base) ;
+    color: white ;
+    border-color: var(--cappuccino-border) ;
+    font-weight: bold ;
+}
+
+.theme-light .community-item-button:hover {
+    background-color: var(--cappuccino-hover) ;
+    color: white ;
+}
+
+/* Fix for Copy Code Buttons */
+.theme-light .copy-code-button {
+    background-color: var(--cappuccino-base) ;
+    color: white ;
+    border-color: var(--cappuccino-border) ;
+}
+
+.theme-light .copy-code-button:hover {
+    background-color: var(--cappuccino-hover) ;
+    color: white ;
+}
+
+/* Ensure Focus States are Visible */
+.theme-light button:focus-visible,
+.theme-light input:focus-visible,
+.theme-light textarea:focus-visible,
+.theme-light select:focus-visible {
+    outline: 2px solid var(--cappuccino-base) ;
+    outline-offset: 2px ;
+}
+
+/* Fix for File Explorer Action Buttons */
+.theme-light .nav-action-button {
+    background-color: var(--cappuccino-base) ;
+    color: white ;
+    border-color: var(--cappuccino-border) ;
+}
+
+.theme-light .nav-action-button:hover {
+    background-color: var(--cappuccino-hover) ;
+    color: white ;
+}
+
+/* ========================================
+APPLICATION SHELL
+======================================== */
+/* Startup Progress */
+.progress-bar .progress-bar-line { 
+    background-color: var(--background-secondary); 
+}
+.progress-bar .progress-bar-subline { 
+    background-color: var(--espresso-base); 
+}
+
+/* Modals & Overlays */
+.modal, .prompt, .menu, .tooltip {
+    background-color: var(--background-primary);
+    border-color: var(--background-modifier-border);
+    color: var(--text-normal);
+}
+.tooltip {
+    --element-selector-highlight-outline: 1px dashed var(--interactive-accent);
+    --element-selector-highlight-background-color: rgba(149, 199, 152, 0.25);
+    --element-selector-tooltip-background-color: var(--background-primary);
+    --element-selector-tooltip-border: 1px solid var(--background-modifier-border);
+    --element-selector-tooltip-border-radius: 6px;
+    --element-selector-tooltip-padding: 1em;
+}
+
+/* Notifications */
+.notice {
+    background-color: var(--background-modifier-cover);
+    color: var(--text-normal);
+    border-left: 3px solid var(--espresso-base);
+}
+
+/* ========================================
+WORKSPACE LAYOUT
+======================================== */
+/* Title Bar */
+.titlebar-text,
+.titlebar-button.mod-logo {
+    color: var(--espresso-base);
+    opacity: 1;
+}
+.titlebar-button { 
+    color: var(--icon-color-normal); 
+}
+
+/* Ribbons */
+.workspace-ribbon {
+    background-color: var(--background-secondary);
+    color: var(--espresso-border);
+}
+
+/* Side Panels */
+.mod-right-split {
+    background-color: var(--background-secondary);
+    border-left: 1px solid var(--background-modifier-border);
+}
+.workspace-tabs {
+    border-bottom: 1px solid var(--espresso-base);
+    color: var(--espresso-base);
+}
+.workspace-tab-header-inner-icon {
+    color: var(--icon-color-normal);
+}
+
+/* Status Bar */
+.status-bar {
+    background-color: var(--status-bar-background);
+    color: var(--text-muted);
+}
+.mod-clickable.status-bar-item:hover {
+    background-color: var(--interactive-hover);
+}
+
+/* ========================================
+FILE EXPLORER & NAVIGATION
+======================================== */
+.nav-file-title, .nav-folder-title {
+    color: var(--nav-item-color);
+}
+.nav-file-title:hover, .nav-folder-title:hover {
+    background-color: var(--nav-item-color-background-hover);
+    color: var(--nav-item-color-hover);
+}
+.nav-file-title.is-active, .nav-folder-title.is-active {
+    color: var(--nav-item-color-active);
+    background-color: rgba(161, 107, 77, 0.22);
+}
+.workspace-leaf.mod-active .view-header-title {
+    color: var(--text-active);
+    border-bottom: 2px solid var(--interactive-accent);
+}
+
+/* ========================================
+NOTE CONTENT AREA
+======================================== */
+/* Base Views */
+.markdown-source-view,
+.cm-s-obsidian {
+    color: var(--text-normal);
+}
+
+/* Headers */
+h1, h2, h3, h4, h5, h6,
+.cm-header-1, .cm-header-2, .cm-header-3,
+.cm-header-4, .cm-header-5, .cm-header-6 {
+    color: var(--text-normal);
+    font-weight: 600;
+}
+
+/* Emphasis */
+strong, .cm-strong { 
+    font-weight: 700; 
+    color: var(--text-normal); 
+}
+em, .cm-em { 
+    font-style: italic; 
+}
+mark, .cm-highlight {
+    background-color: var(--text-highlight-bg);
+    color: var(--text-normal);
+}
+del, .cm-strikethrough {
+    text-decoration-color: var(--text-faint);
+    opacity: 0.85;
+}
+
+/* Links */
+a.internal-link,
+a.external-link,
+.cm-hmd-internal-link {
+    color: var(--text-accent);
+}
+a.internal-link:hover,
+a.external-link:hover {
+    color: var(--text-accent-hover);
+}
+a.internal-link.is-unresolved {
+    color: var(--text-faint);
+    opacity: 0.7;
+}
+
+/* Code */
+code, .cm-inline-code {
+    background-color: var(--background-modifier-form-field);
+    color: var(--text-normal);
+    font-family: var(--font-monospace);
+}
+pre, .HyperMD-codeblock {
+    background-color: var(--background-secondary-alt);
+    border-left: 3px solid var(--espresso-border);
+    padding: 1em;
+}
+
+/* Blockquotes & Tables */
+blockquote, .HyperMD-quote {
+    border-left: 3px solid var(--espresso-border);
+    background-color: var(--background-modifier-hover);
+    color: var(--text-muted);
+}
+table {
+    border-color: var(--background-modifier-border);
+}
+th, td {
+    border-color: var(--background-modifier-border);
+    color: var(--text-normal);
+}
+
+/* Lists & Checkboxes */
+li.task-list-item {
+    margin-block: 0.25em;
+}
+input[type="checkbox"] {
+    border-color: var(--espresso-border);
+    background-color: var(--background-secondary);
+}
+input[type="checkbox"]:checked {
+    background-color: var(--espresso-base);
+    accent-color: var(--background-primary);
+}
+
+/* Frontmatter */
+.frontmatter-container,
+.cm-hmd-frontmatter {
+    background-color: var(--metadata-label-background);
+    border-bottom: 1px dashed var(--background-modifier-border);
+    color: var(--metadata-label-text-color);
+}
+.frontmatter-container .frontmatter-alias {
+    color: var(--espresso-base);
+}
+
+/* Embeds */
+.markdown-embed, .file-embed {
+    border: 1px solid var(--background-modifier-border);
+    background-color: var(--background-primary-alt);
+}
+.markdown-embed-title, .file-embed-title {
+    border-bottom: 1px solid var(--background-modifier-border);
+    color: var(--text-active);
+}
+.markdown-embed-link, .file-embed-link {
+    color: var(--text-accent);
+}
+
+/* Tags */
+a.tag, .cm-hashtag {
+    background-color: var(--background-modifier-hover);
+    color: var(--espresso-base);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+}
+
+/* ========================================
+UI COMPONENTS
+======================================== */
+/* Buttons */
+button:not(.mod-cta, .mod-warning) {
+    background-color: var(--interactive-normal);
+    color: var(--text-on-accent);
+    border-color: var(--background-modifier-border);
+}
+button:hover:not(.mod-cta, .mod-warning) {
+    background-color: var(--interactive-hover);
+    color: var(--text-on-accent);
+}
+button.mod-cta {
+    background-color: var(--espresso-hover);
+    color: var(--text-on-accent);
+}
+button.mod-warning {
+    background-color: #c44536;
+    color: white;
+}
+
+/* Form Elements */
+input, textarea, .dropdown {
+    background-color: var(--background-modifier-form-field);
+    border-color: var(--background-modifier-border);
+    color: var(--text-normal);
+}
+input:focus, textarea:focus {
+    border-color: var(--background-modifier-border-focus);
+    box-shadow: 0 0 0 2px rgba(201, 140, 104, 0.28);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    background-color: var(--scrollbar-bg);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-bg);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-active-thumb-bg);
+}
+
+/* ========================================
+SPECIAL VIEWS
+======================================== */
+/* Graph View */
+.graph-view.color-fill { 
+    color: var(--text-muted); 
+}
+.graph-view.color-fill-focused { 
+    color: #ffcc00; 
+}
+.graph-view.color-fill-tag { 
+    color: #a87c5e; 
+}
+.graph-view.color-fill-attachment { 
+    color: #4a7ba7; 
+}
+.graph-view.color-fill-unresolved {
+    color: var(--text-faint);
+    opacity: 0.6;
+}
+.graph-view.color-arrow,
+.graph-view.color-line {
+    color: var(--background-modifier-border);
+    opacity: 0.7;
+}
+.graph-view.color-circle,
+.graph-view.color-text { 
+    color: var(--text-normal); 
+}
+.graph-view.color-fill-highlight,
+.graph-view.color-line-highlight {
+    color: var(--interactive-accent);
+    opacity: 1;
+}
+
+/* ========================================
+CURSOR & ANIMATIONS
+======================================== */
+.cm-cursorLayer .cm-cursor {
+    border-left: 1.2px solid var(--espresso-base);
+    margin-left: -0.6px;
+}
+.cm-cursorLayer {
+    animation-name: none;
+}
+@keyframes phase-blink {
+    15% { opacity: 1; }
+    50% { opacity: 0.2; }
+    85% { opacity: 1; }
+}
+.cm-cursorLayer .cm-cursor {
+    animation: phase-blink 2200ms steps(1) infinite;
+}
+
+/* ========================================
+UTILITY OVERRIDES
+======================================== */
+/* Ensure vault name color consistency */
+.workspace-ribbon .workspace-ribbon-collapse-btn,
+.workspace-ribbon .workspace-ribbon-pin-btn {
+    color: var(--espresso-base);
+}
+
+/* Fix sidebar plugin text contrast */
+.mod-split .nav-file-title-content,
+.mod-split .nav-folder-title-content {
+    --text-normal: var(--text-muted);
+}
+
+/* ========================================
+ACCENT PRESETS - Quick Theme Variations
+======================================== */
+
+/* 🌿 Forest Mint Preset */
+body.mocha-forest {
+    --espresso-base: #7da87f ;
+    --espresso-hover: #6b8e6c ;
+    --espresso-active: #e8f0e6 ;
+    --espresso-border: #3a2f2b ;
+    --cappuccino-base: #7da87f ;
+    --cappuccino-hover: #6b8e6c ;
+    --cappuccino-active: #e8f0e6 ;
+    --cappuccino-border: #3a2f2b ;
+}
+
+/* 🔵 Midnight Blue Preset */
+body.mocha-midnight {
+    --espresso-base: #6b829a ;
+    --espresso-hover: #52687d ;
+    --espresso-active: #e6edf5 ;
+    --espresso-border: #3d4e5e ;
+    --cappuccino-base: #6b829a ;
+    --cappuccino-hover: #52687d ;
+    --cappuccino-active: #e6edf5 ;
+    --cappuccino-border: #3d4e5e ;
+}
+
+/* 🍷 Burgundy Preset */
+body.mocha-burgundy {
+    --espresso-base: #9a586b ;
+    --espresso-hover: #7d4458 ;
+    --espresso-active: #f5e8ed ;
+    --espresso-border: #5e3544 ;
+    --cappuccino-base: #9a586b ;
+    --cappuccino-hover: #7d4458 ;
+    --cappuccino-active: #f5e8ed ;
+    --cappuccino-border: #5e3544 ;
+}
+
+/* 🟤 Rich Walnut Preset */
+body.mocha-walnut {
+    --espresso-base: #a87c5e ;
+    --espresso-hover: #8b6246 ;
+    --espresso-active: #f0e8e0 ;
+    --espresso-border: #6b4d35 ;
+    --cappuccino-base: #a87c5e ;
+    --cappuccino-hover: #8b6246 ;
+    --cappuccino-active: #f0e8e0 ;
+    --cappuccino-border: #6b4d35 ;
+}
+
+/* ========================================
+VISUAL TOGGLES
+======================================== */
+/* Rounded Corners Toggle */
+body.mocha-rounded-corners {
+    --radius-s: 6px;
+    --radius-m: 10px;
+    --radius-l: 14px;
+    --radius-xl: 18px;
+}
+
+/* Hide Status Bar Toggle */
+body.mocha-hide-status-bar .status-bar {
+    display: none ;
+}
+
+/* ========================================
+TRANSLUCENT MODALS - Works in Both Modes
+======================================== */
+
+/* Dark Mode */
+body.mocha-translucent-modals.theme-dark .modal,
+body.mocha-translucent-modals.theme-dark .prompt,
+body.mocha-translucent-modals.theme-dark .menu {
+  background-color: rgba(30, 20, 15, 0.92) ;
+  backdrop-filter: blur(10px) ;
+  border: 1px solid var(--background-modifier-border) ;
+  color: var(--text-normal) ;
+}
+
+/* Light Mode - Lighter, more readable */
+body.mocha-translucent-modals.theme-light .modal,
+body.mocha-translucent-modals.theme-light .prompt,
+body.mocha-translucent-modals.theme-light .menu {
+  background-color: rgba(188, 221, 195, 0.884) ; /* Light cream */
+  backdrop-filter: blur(8px) ;
+  border: 1px solid var(--background-modifier-border) ;
+  color: var(--text-normal) ;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) ;
+}
+
+/* ========================================
+DROPDOWN TEXT FIX - Light Mode Settings
+======================================== */
+
+/* Dropdown text in light mode settings */
+
+/* Dropdown hover state */
+.theme-light .modal .dropdown:hover {
+    background-color: var(--cappuccino-hover) ;
+}
+
+/* Dropdown options text */
+.theme-light .modal select option {
+    color: var(--text-on-accent) ; /* Dark text for options */
+    background-color: var(--cappuccino-base) ;
+}
+
+/* Style Settings dropdowns */
+.theme-light .modal .style-settings-dropdown {
+    color: var(--text-normal) ;
+    background-color: var(--cappuccino-base) ;
+}
+
+.view-content .pixel-banner-image { z-index: var(--layer-sidedock) }
+
+
+
+/* ========================================
+STYLE SETTINGS CONFIGURATION
+======================================== */
+/* @settings
+
+name: 🌿 Mocha Latte Cafe 003
+id: mocha-latte-cafe-003
+settings:
+  -
+    id: mocha-colors-header
+    title: 🎨 Colors
+    type: heading
+    level: 1
+    collapsed: false
+  -
+    id: background-primary
+    title: Primary Background Color
+    description: Main background where you write (editor/preview area)
+    type: variable-color
+    format: hex
+    default: '#332926'
+  -
+    id: background-secondary
+    title: Sidebar Background Color
+    description: File explorer and side panels
+    type: variable-color
+    format: hex
+    default: '#2a221f'
+  -
+    id: espresso-base
+    title: Primary Accent Color
+    description: Main mint green for links, highlights, and active states
+    type: variable-color
+    format: hex
+    default: '#95c798'
+  -
+    id: espresso-hover
+    title: Hover Accent Color
+    description: Color when hovering over interactive elements
+    type: variable-color
+    format: hex
+    default: '#7da87f'
+  -
+    id: espresso-active
+    title: Active State Color
+    description: Color for currently selected items
+    type: variable-color
+    format: hex
+    default: '#fbffe0'
+  -
+    id: text-normal
+    title: Body Text Color
+    description: Main readable text color
+    type: variable-color
+    format: hex
+    default: '#e8f0e6'
+  -
+    id: mocha-fonts-header
+    title: ✍️ Typography
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: font-size-normal
+    title: Base Font Size
+    description: Main text size (Ctrl+Scroll still works)
+    type: variable-number-slider
+    default: 16
+    min: 12
+    max: 24
+    step: 0.5
+    format: px
+  -
+    id: font-size-code
+    title: Code Font Size
+    type: variable-number-slider
+    default: 15
+    min: 10
+    max: 20
+    step: 0.5
+    format: px
+  -
+    id: line-height-normal
+    title: Line Height
+    description: Spacing between lines (1.5 = 150%)
+    type: variable-number-slider
+    default: 1.5
+    min: 1.0
+    max: 2.5
+    step: 0.1
+    format: ''
+  -
+    id: mocha-visual-header
+    title: 🎭 Visual Tweaks
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: mocha-rounded-corners
+    title: Rounded Corners
+    description: Soften edges on cards, buttons, and modals
+    type: class-toggle
+    default: true
+  -
+    id: mocha-translucent-modals
+    title: Translucent Modals
+    description: Semi-transparent settings windows
+    type: class-toggle
+    default: false
+  -
+    id: mocha-hide-status-bar
+    title: Hide Status Bar
+    description: Clean minimalist look
+    type: class-toggle
+    default: false
+  -
+    id: mocha-accent-header
+    title: 🔧 Accent Presets
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: mocha-accent-preset
+    title: Quick Accent Preset
+    description: Instantly change the theme's mood
+    type: class-select
+    allowEmpty: true
+    default: mocha-walnut
+    options:
+      -
+        label: 'None (Custom)'
+        value: 'none'
+      -
+        label: '🌿 Forest Mint'
+        value: 'mocha-forest'
+      -
+        label: '🔵 Midnight Blue'
+        value: 'mocha-midnight'
+      -
+        label: '🍷 Burgundy'
+        value: 'mocha-burgundy'
+      -
+        label: '🟤 Earthy Gold'
+        value: 'mocha-walnut'
+  -
+    id: mocha-about-header
+    title: ℹ️ About Mocha Latte Cafe 003
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: mocha-theme-author
+    title: 'Created by: DA Rasmussen'
+    description: '🌿 A fresh, minty brew - earthy browns with refreshing mint accents'
+    type: info-text
+  -
+    id: mocha-theme-license
+    title: 'License: CC0-1.0'
+    description: 'Free to use, modify, and share'
+    type: info-text
+
+*/
