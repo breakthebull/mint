@@ -203,3 +203,8 @@ Mocha Latte Cafe 003 is more than a theme — it's a breath of fresh air. Whethe
 ---
 
 *Made with ❤️ and lots of fresh mint*
+
+---
+
+Feel free to support me here: 
+[![Donate with PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/drasmussen93)
